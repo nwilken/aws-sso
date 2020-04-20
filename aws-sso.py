@@ -45,7 +45,7 @@ cookiefile = expanduser('~/.aws/sso_session_cookies')
 
 # idpentryurl: The initial url that starts the authentication process.
 idpentryurl = 'https://shibboleth2.asu.edu/idp/profile/SAML2/Unsolicited/SSO?providerId=urn:amazon:webservices'
-duourl = "https://weblogin.asu.edu/cas/login?service=https%3A%2F%2Fshibboleth2.asu.edu%2Fidp%2FAuthn%2FExtCas%3Fconversation%3De1s1&entityId=urn%3Aamazon%3Awebservices"
+duourl = "https://weblogin.asu.edu/cas/login?service=https%3A%2F%2Fshibboleth2.asu.edu%2Fidp%2FAuthn%2FExternal%3Fconversation%3De1s1&entityId=urn%3Aamazon%3Awebservices"
 
 
 # Uncomment to enable low level debugging
