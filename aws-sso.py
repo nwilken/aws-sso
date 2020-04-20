@@ -26,7 +26,7 @@ import pickle
 
 # region: The default AWS region that this script will connect
 # to for all API calls
-region = 'us-east-1'
+region = 'us-west-2'
 
 # output format: The AWS CLI output format that will be configured in the
 # saml profile (affects subsequent CLI calls)
