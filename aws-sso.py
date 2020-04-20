@@ -299,7 +299,7 @@ if need_login:
     duourlstatus = "https://" + datahost + "/frame/status"
 
     if wait_for_confirm:
-        print "Please press any key after you've accepted the Duo request",
+        print "Please press enter after you've accepted the Duo request",
         junkin = raw_input()
 
     response = session.post(
