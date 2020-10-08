@@ -184,14 +184,10 @@ if need_login:
     sigresponse = ''
 
     # print (soup.prettify())
-    for iframetag in soup.find_all('script', text=re.compile(r'.*Duo\.init.*')):
-        # print "iframetag=%s" % iframetag.string
-        duo_json = re.search(r'.*init\((.*)\).*', iframetag.string, re.DOTALL).group(1).replace('\'', '"')
-        # print "duojson=%s" % duo_json
-        duo_obj = json.loads(duo_json)
-        # print "duoobj=%s" % duo_obj
-        datahost = duo_obj['host']
-        u = duo_obj['sig_request']
+    for iframetag in soup.find_all("iframe", id="duo_iframe"):
+        # print "iframetag=%s" % iframetag
+        datahost = iframetag['data-host']
+        u = iframetag['data-sig-request']
         #Exctract only the TX portion
         i = u.find(':APP')
         datasigrequest = u[0:i]
