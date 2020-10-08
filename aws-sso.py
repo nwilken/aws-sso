@@ -198,6 +198,8 @@ if need_login:
         print("Couldn't log you in. Check your username and password.")
         sys.exit(1)
 
+    casexecution = soup.find("input", attrs={"name": "execution"})['value']
+
     # Create the Duo session
     duosession = requests.Session()
 
@@ -314,7 +316,9 @@ if need_login:
     payload = {}
     d = json.loads(response.text)
     sig_response = d["response"]["cookie"] + sigresponseappstr
-    payload["duo_sig_response"] = sig_response
+    payload["signedDuoResponse"] = sig_response
+    payload["_eventId"] = "submit"
+    payload["execution"] = casexecution
     parenturl = d["response"]["parent"]
     response = session.post(
     duourl, 
