@@ -4,6 +4,8 @@
 
 `docker run -it --rm -v ~/.aws:/root/.aws asuuto/aws-sso:latest`
 
+(or `-v %userprofile%\.aws:/root/.aws` when running on Windows)
+
 then you can, for example
 
 `aws --profile saml s3 ls *`
