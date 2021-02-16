@@ -398,7 +398,7 @@ with open(cookiefile, 'wb') as f:
 
 # Use the assertion to get an AWS STS token using Assume Role with SAML
 conn = boto.sts.connect_to_region(region)
-token = conn.assume_role_with_saml(role_arn, principal_arn, assertion)
+token = conn.assume_role_with_saml(role_arn, principal_arn, assertion, duration_seconds=32400)
 
 # Write the AWS STS token into the AWS credential file
 home = expanduser("~")
