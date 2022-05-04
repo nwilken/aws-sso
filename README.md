@@ -35,3 +35,6 @@ aws_secret_access_key =
 docker build --pull -t asuuto/aws-sso:latest .
 docker push asuuto/aws-sso:latest
 ```
+#### Known issues:
+- An error may be thrown if you have access to only one AWS account/role
+- Process fails if you are being prompted to change your password at login
