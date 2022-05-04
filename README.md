@@ -8,11 +8,11 @@
 
 then you can, for example
 
-`aws --profile saml s3 ls *`
+`aws --profile saml s3 ls`
 
 or, if you don't have the aws cli installed locally
 
-`docker run -it --rm -v ~/.aws:/root/.aws asuuto/awscli:latest aws --profile saml s3 ls *`
+`docker run -it --rm -v ~/.aws:/root/.aws asuuto/awscli:latest aws --profile saml s3 ls`
 
 if you don't already have a `~/.aws/credentials` file, start with this one
 
