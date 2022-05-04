@@ -339,7 +339,7 @@ if need_login:
     # Better error handling is required for production use.
     if (assertion == ''):
         #TODO: Insert valid error checking/handling
-        print 'Response did not contain a valid SAML assertion'
+        print 'Response did not contain a valid SAML assertion.  Are you being prompted to change your password at login?'
         sys.exit(0)
 
 # Debug only
