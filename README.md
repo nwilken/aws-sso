@@ -16,7 +16,7 @@ When using this method, all four of the following must be defined:
 
 - `username` : the SSO user intended to assume the role.
 - `password` : the password of the SSO user intended to assume the role.
-  - It is recommended that this be sourced from a file or environment variable (IE: `$(cat /path/to/password/file`.
+  - It is recommended that this be sourced from a file or environment variable (IE: `$(cat /path/to/password/file)`.
 - `duration` : length of time that the SSO user will have the role (in seconds).
   - This value must be less than or equal to the maximum session duration of the assumed role.
 - `organization` : use 'production'.
