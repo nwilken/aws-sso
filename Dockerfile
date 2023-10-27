@@ -13,5 +13,4 @@ COPY credentials .
 
 WORKDIR /root
 
-CMD ["/app/aws-sso.py"]
-
+ENTRYPOINT ["/app/aws-sso.py"]
