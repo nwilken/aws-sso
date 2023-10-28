@@ -64,6 +64,8 @@ session = requests.Session()
 # If there is no cached login, or it's expired, go through the login process again
 need_login = True
 assertion = ''
+sso_duration = 30
+assume_role_duration = 32400
 
 if isfile(cookiefile):
     with open(cookiefile, 'rb') as f:
@@ -86,14 +88,14 @@ if need_login:
     if len(sys.argv) > 4:
         username = sys.argv[1]
         password = sys.argv[2]
-        duration = sys.argv[3]
-        organization = sys.argv[4]
+        sso_duration = sys.argv[3]
+        assume_role_duration = sys.argv[4]
+        organization = sys.argv[5]
     else:
         print "ASURITE Username:",
         username = raw_input()
         password = getpass.getpass()
         print ''
-        duration = 30
         organization = 'production'
 
     # Programmatically get the SAML assertion
@@ -131,7 +133,7 @@ if need_login:
     #payload['_eventId_proceed'] = ''
 
     # Populate the following from input or defaults 
-    payload['session-duration'] = duration
+    payload['session-duration'] = sso_duration
     payload['organization'] = organization
 
     # Debug the parameter payload if needed
@@ -398,7 +400,7 @@ with open(cookiefile, 'wb') as f:
 
 # Use the assertion to get an AWS STS token using Assume Role with SAML
 conn = boto.sts.connect_to_region(region)
-token = conn.assume_role_with_saml(role_arn, principal_arn, assertion, duration_seconds=32400)
+token = conn.assume_role_with_saml(role_arn, principal_arn, assertion, duration_seconds=assume_role_duration)
 
 # Write the AWS STS token into the AWS credential file
 home = expanduser("~")
@@ -441,4 +443,3 @@ buckets = s3conn.get_all_buckets()
 
 print 'Simple API example listing all S3 buckets:'
 print(buckets)
-

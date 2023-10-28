@@ -8,7 +8,7 @@
 (or `-v %userprofile%\.aws:/root/.aws` when running on Windows)
 
 #### Method 2 (using optional args).
-`docker run -it --rm -v ~/.aws:/root/.aws asuuto/aws-sso:latest <username> <password> <duration> <organization>`
+`docker run -it --rm -v ~/.aws:/root/.aws asuuto/aws-sso:latest <username> <password> <sso_duration> <assume_role_duration> <organization>`
 
 (or `-v %userprofile%\.aws:/root/.aws` when running on Windows)
 
@@ -17,7 +17,9 @@ When using this method, all four of the following must be defined:
 - `username` : the SSO user intended to assume the role.
 - `password` : the password of the SSO user intended to assume the role.
   - It is recommended that this be sourced from a file or environment variable (IE: `$(cat /path/to/password/file)`.
-- `duration` : length of time that the SSO user will have the role (in seconds).
+- `sso_duration` : duration of the SSO user's session (units unknown).
+  - This may be the length of time the user's login credentials will last with the script before a new login is required, but this is somewhat uncertain.
+- `assume_role_duration`: length of time that the SSO user will have the role (in seconds).
   - This value must be less than or equal to the maximum session duration of the assumed role.
 - `organization` : use 'production'.
 
