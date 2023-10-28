@@ -12,7 +12,7 @@
 
 (or `-v %userprofile%\.aws:/root/.aws` when running on Windows)
 
-When using this method, all four of the following must be defined:
+When using this method, all five of the following must be defined:
 
 - `username` : the SSO user intended to assume the role.
 - `password` : the password of the SSO user intended to assume the role.
