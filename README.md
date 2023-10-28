@@ -17,7 +17,7 @@ When using this method, all four of the following must be defined:
 - `username` : the SSO user intended to assume the role.
 - `password` : the password of the SSO user intended to assume the role.
   - It is recommended that this be sourced from a file or environment variable (IE: `$(cat /path/to/password/file)`.
-- `sso_duration` : duration of the SSO user's session (default: 30 [units unknown])
+- `sso_duration` : duration of the SSO user's session (default: 30, units unknown)
   - This may be the length of time the user's login credentials will last with the script before a new login is required, but this is somewhat uncertain.
 - `assume_role_duration`: length of time that the SSO user will have the role (in seconds).
   - This value must be less than or equal to the maximum session duration of the assumed role.
