@@ -85,7 +85,7 @@ if isfile(cookiefile):
 
 if need_login:
     # Get the federated credentials from the user
-    if len(sys.argv) > 4:
+    if len(sys.argv) > 5:
         username = sys.argv[1]
         password = sys.argv[2]
         sso_duration = sys.argv[3]
